@@ -1,0 +1,18 @@
+
+<section [ngClass]="{'loading': !taskList.length}">
+
+    <ul *ngIf="taskList.length > 0">
+        <li *ngFor="let item of taskList; let i = index">
+            <input type="checkbox" [(ngModel)]="item.checked">
+            <input type="text" [ngClass]="{'checked': item.checked === true}" (keyup)="validationInput(item.task, i)" [(ngModel)]="item.task">
+            <button (click)="deleteItemTaskList(i)">
+                <img src="assets/icons/delete-icon.svg" width="20">
+            </button>
+        </li>
+    </ul>
+
+</section>
+
+<!-- eu coloco a chamada desses dois componentes aqui para melhor comunicação entre os componentes -->
+<app-todo-button-input-items (emitItemTaskList)="setEmitTaskList($event)"></app-todo-button-input-items>
+<app-todo-button-delete-all *ngIf="taskList.length > 0" (click)="deleteAllTaskList()"></app-todo-button-delete-all>

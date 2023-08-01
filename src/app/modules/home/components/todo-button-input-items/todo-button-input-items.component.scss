@@ -1,0 +1,26 @@
+@import '../../../../../dist/scss/styles.scss';
+
+:host {
+    // o host referencia o nosso componente "pai". Nesse caso, ele referencia o componente todo-button-input-items. Sendo assim, quando inspecionamos no html, todos esses atributos estarão setados nele ou nos seus componentes filhos.
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+
+    input {
+        width: 80%;
+
+        border: none;
+        background: $tertiary-background-color;
+
+        font-size: 16px;
+        color: $secondary-text-color;
+        text-align: center;
+
+        padding: 10px;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: $secondary-text-color;
+        }
+    }
+}
